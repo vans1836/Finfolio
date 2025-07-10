@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap");
 
+<<<<<<< HEAD
 html,
 body,
 #root,
@@ -15,21 +16,82 @@ body,
   position: relative;
 }
 
+=======
+/* Reset and font */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+/* App wrapper */
+.app {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Shared content block */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Protected layout (Topbar + Sidebar + Main Content) */
+.protected-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.protected-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Optional scroll styling */
+>>>>>>> origin/updated-finfolio
 ::-webkit-scrollbar {
   width: 10px;
 }
 
+<<<<<<< HEAD
 /* Track */
+=======
+>>>>>>> origin/updated-finfolio
 ::-webkit-scrollbar-track {
   background: #e0e0e0;
 }
 
+<<<<<<< HEAD
 /* Handle */
+=======
+>>>>>>> origin/updated-finfolio
 ::-webkit-scrollbar-thumb {
   background: #888;
 }
 
+<<<<<<< HEAD
 /* Handle on hover */
+=======
+>>>>>>> origin/updated-finfolio
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }

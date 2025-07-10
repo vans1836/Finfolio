@@ -40,6 +40,12 @@ const Sidebar = () => {
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
+<<<<<<< HEAD
+=======
+  const user = JSON.parse(localStorage.getItem("user"));
+const userName = user?.name || "User";
+
+>>>>>>> origin/updated-finfolio
 
   return (
      <Box
@@ -107,6 +113,7 @@ const Sidebar = () => {
               </Box> */}
               <Box textAlign="center">
                 <Typography
+<<<<<<< HEAD
                   variant="h2"
                   color={colors.grey[100]}
                   fontWeight="bold"
@@ -114,6 +121,16 @@ const Sidebar = () => {
                 >
                   Kiran
                 </Typography>
+=======
+  variant="h2"
+  color={colors.grey[100]}
+  fontWeight="bold"
+  sx={{ m: "10px 0 0 0" }}
+>
+  {userName}
+</Typography>
+
+>>>>>>> origin/updated-finfolio
                 {/* <Typography variant="h5" color={colors.greenAccent[500]}>
                   
                 </Typography> */}
@@ -124,7 +141,11 @@ const Sidebar = () => {
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
             <Item
               title="Dashboard"
+<<<<<<< HEAD
               to="/"
+=======
+              to="/UserDashboard"
+>>>>>>> origin/updated-finfolio
               icon={<HomeOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}

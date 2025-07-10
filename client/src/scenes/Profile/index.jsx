@@ -26,12 +26,26 @@ export default function Profile() {
   const [trades, setTrades] = useState([]);
   const [filter, setFilter] = useState("All");
 
+<<<<<<< HEAD
   // Profile state
   const [isEditing, setIsEditing] = useState(false);
   const [name, setName] = useState("Kiran");
   const [username, setUsername] = useState("@investor_Kiran");
 
   useEffect(() => {
+=======
+  const [isEditing, setIsEditing] = useState(false);
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
+
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    if (storedUser) {
+      setName(storedUser.name || "");
+      setUsername(storedUser.email || "");
+    }
+
+>>>>>>> origin/updated-finfolio
     const load = async () => {
       const results = await Promise.all(tradeSymbols.map(fetchStockDetails));
       const withMeta = results.map((s, i) => ({
@@ -45,6 +59,15 @@ export default function Profile() {
     load();
   }, []);
 
+<<<<<<< HEAD
+=======
+  const handleSave = () => {
+    const updatedUser = { name, email: username };
+    localStorage.setItem("user", JSON.stringify(updatedUser));
+    setIsEditing(false);
+  };
+
+>>>>>>> origin/updated-finfolio
   const filteredTrades =
     filter === "All" ? trades : trades.filter((t) => t.type === filter);
 
@@ -77,7 +100,11 @@ export default function Profile() {
                   <TextField
                     variant="outlined"
                     size="small"
+<<<<<<< HEAD
                     label="Username"
+=======
+                    label="Email"
+>>>>>>> origin/updated-finfolio
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                   />
@@ -99,7 +126,11 @@ export default function Profile() {
           </Box>
           <Button
             variant="contained"
+<<<<<<< HEAD
             onClick={() => setIsEditing((prev) => !prev)}
+=======
+            onClick={isEditing ? handleSave : () => setIsEditing(true)}
+>>>>>>> origin/updated-finfolio
           >
             {isEditing ? "Save" : "Edit Profile"}
           </Button>
@@ -187,10 +218,19 @@ export default function Profile() {
               {filteredTrades.map((t, i) => (
                 <tr key={i}>
                   <td>{t.date}</td>
+<<<<<<< HEAD
                   <td>{t.symbol.replace(".NS", "")}</td>
                   <td>{t.type}</td>
                   <td>{t.qty}</td>
                   <td>₹{t.price?.toFixed(2)}</td>
+=======
+                  <td>{t.symbol?.replace(".NS", "") || "N/A"}</td>
+
+                  <td>{t.type}</td>
+                  <td>{t.qty}</td>
+                  <td>₹{t.price ? t.price.toFixed(2) : "N/A"}</td>
+
+>>>>>>> origin/updated-finfolio
                   <td>Completed</td>
                 </tr>
               ))}
@@ -201,4 +241,7 @@ export default function Profile() {
     </Box>
   );
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/updated-finfolio
